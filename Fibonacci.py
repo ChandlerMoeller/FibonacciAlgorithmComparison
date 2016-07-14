@@ -1,3 +1,7 @@
+import sys
+import time
+sys.setrecursionlimit(10000)
+
 FibCounter = 0
 DynamicFibCounter = 0
 Table = {}
@@ -71,16 +75,28 @@ value = raw_input("Please input the position desired:\n")
 value = int(value)
 
 print("")
-print("Fibonacci value is: %d" %(Fibonacci(value)))
+time_start = time.clock()
+Fibonacci = Fibonacci(value)
+time_end = time.clock()
+print("Fibonacci value is: %d" %(Fibonacci))
 print("Recursions used: %d" %(FibCounter))
+print("Time elapsed: %.30f" %(time_end-time_start))
 
 print("")
-print("Dynamic: Fibonacci value is: %d" %(DynamicFibonacci(value)))
+time_start = time.clock()
+DynamicFibonacci = DynamicFibonacci(value)
+time_end = time.clock()
+print("Dynamic: Fibonacci value is: %d" %(DynamicFibonacci))
 print("Dynamic: Recursions used: %d" %(DynamicFibCounter))
 print("Dynamic: Cache Size: %d" %(len(Table)))
+print("Time elapsed: %.30f" %(time_end-time_start))
 
 print("")
-print("OptDynamic: Fibonacci value is: %d" %(OptDynamicFibonacciinit(value)))
+time_start = time.clock()
+OptDynamicFibonacciinit = OptDynamicFibonacciinit(value)
+time_end = time.clock()
+print("OptDynamic: Fibonacci value is: %d" %(OptDynamicFibonacciinit))
 print("OptDynamic: Recursions used: %d" %(OptDynamicFibCounter))
-print("OptDynamic: Cache Size: 2")
+print("OptDynamic: Cache Size: 1")
+print("Time elapsed: %.30f" %(time_end-time_start))
 
